@@ -1,0 +1,255 @@
+ to make array of length 30 
+ Array.from({length:30} , (_, i)=>i+1) 
+ [1 , 2 ,  3 , ....... , 30] 
+
+ to make a array of length 60 
+ Array.from({length:60}, (_ , i)=>i+1) 
+ [1,2,3,4,....   , 60 ]  
+
+ to make array of length 30 then make a list of option 
+ Array.from({length:30} , (_,i)=>i+1).map((num)=> 
+ <option value={num}>{num}</option>
+ )
+ 
+
+ to update state on the value change in the form using the event onChange 
+ onChange((e)=>setState(e.target.value)) => update state when the input filed changed 
+
+ to make array of 50 length 
+ Array.from({length:50} , (_,i)=>i+1).map((num)=>{
+    <option value={num}>{num}</option>
+ }) 
+
+ const [item, setItem] = useState("");  
+ not empty string is true 
+ if(!item)  if(!false is true) then if executed  
+ السترنج الفاضي بي فلس نت السترنج الفاضي بي ترو  
+
+ const [item , setItem] = useState('')
+ function handelSubmit(e){
+    e.preventDefault()  // عشان امنع الفورم من انها تتبعت
+    if(!item)return  // السترنج الفاضي بي فلس فانا بقوله الشرط ده معناها لو فاضي ارجع 
+    const newItem = { //  لو مش فاضي هعمل كائن جديد واحط في البيانات الي داخلها المستخدم 
+        item , 
+        option, 
+        packed:false , 
+        id:Date.now()
+    } 
+    setItem(''); setOption(1) ; // هرجع الستيت لي القيمه الابتدائيه بتاعتها  
+
+ } 
+
+ لو عايز اضيف قيمه جديده في ارايه فيه مجموعه من الكائنات وعايز اضيف عنصر جديد هعمل كده 
+ nameArray = [...nameArray , newObjectIneed to added] 
+ if i need to added object in the array of object 
+ nameArray = [...nameArray , newObject] 
+
+
+State vs Props 
+state: is internal data , owned by component can be thought a component memory 
+state: Updata state case a component rerender and used to make a component interactive
+props: is extrnal data , owned by a parent component  similar of function of paramter 
+props:update props cause a component rerender 
+props: is communication Channel between parent and Child Component 
+to update state the componet will be rerender 
+if the component is parent component and has child component and this child componet dive a props then update  parent  component and child component will be rerenderd 
+
+
+//challenge
+export default function App(){
+    return( 
+        <div> 
+        <input type='radio' min={1} max={10}/> 
+        <div> 
+        <button>+</button> 
+        <input type='text'/> 
+        <button>-</button> 
+        </div>  
+  <div>
+  {date}
+  </div>
+        <div>
+        <button>Reset</button>
+        </div>
+        </div>
+    )
+} 
+
+import { useState } from "react";
+import "./styles.css";
+
+export default function App() {
+  return (
+    <div className="App">
+      <FlashCards />
+    </div>
+  );
+}
+
+const questions = [
+  {
+    id: 3457,
+    question: "What language is React based on?",
+    answer: "JavaScript",
+  },
+  {
+    id: 7336,
+    question: "What are the building blocks of React apps?",
+    answer: "Components",
+  },
+  {
+    id: 8832,
+    question: "What's the name of the syntax we use to describe a UI in React?",
+    answer: "JSX",
+  },
+  {
+    id: 1297,
+    question: "How to pass data from parent to child components?",
+    answer: "Props",
+  },
+  {
+    id: 9103,
+    question: "How to give components memory?",
+    answer: "useState hook",
+  },
+  {
+    id: 2002,
+    question:
+      "What do we call an input element that is completely synchronised with state?",
+    answer: "Controlled element",
+  },
+];
+
+function FlashCards() {
+  const [selected, setSelected] = useState(null);
+  console.log(selected);
+  function handelSelected(id) {
+    setSelected(selected !== id ? id : null);
+  }
+  return (
+    <div className="flashcards">
+      {questions.map((question) => (
+        <div
+          className={selected == question.id ? "selected" : ""}
+          onClick={() => handelSelected(question.id)}
+          key={question.id}
+        >
+          {selected == question.id ? question.answer : question.question}
+        </div>
+      ))}
+    </div>
+  );
+}
+
+
+
+// state will become Global , that piece of state will become accessible to every single component in the entire app 
+we can define global state using react context API or extrnal global state mangment ex : redux 
+if all component need to acess to one component this component is called global component 
+lift state up to the first comment parent component we call this case is called lifting state up 
+state  الي متفرف في كمونت معين والي محتاج الي كمنت ده هو الشيلد كمنت او الاخوات الاشقاء this state is called Local state 
+
+function to added element in the array 
+function handelAdded(item){
+    setItems((items)=>setItem([...items ,item]))
+} 
+
+to added new item in the array without mutable 
+const [items , setItems] = useState([]) 
+function handelItem(item){
+    setItem((items)=>[...items , item])
+} 
+
+to added new element in the array 
+function handelAdded(item){
+    setItem((items الحاجات الي هتعملها دستركشر )=>[...items operation of destreaction ,  العنصر الجديد الي هضيفهitem])
+} 
+
+in lifing state up when pass a setFunction a props to child then when update state in child parent component will be rerender this is called we can call this technique of passing down a setter function child to parent communication or alse inverse data flow
+to delete element by id onClick in the button
+()=>deleteElementByid(el.id) 
+()=>deleteElementByid(el.id) 
+()=>deleteElementByid(el.id) 
+()=>deleteElementByid(el.id) 
+()=>deleteElementByid(el.id) 
+()=>deleteElementByid(el.id) 
+()=>deleteElementByid(el.id) 
+()=>deleteElementByid(el.id)  
+()=>deleteElementByid(el.id) 
+()=>deleteElementByid(el.id) 
+()=>deleteElementByid(el.id) 
+
+function to delete a specific item in the list by id
+function handelDelete(id){
+    setItems((items)=>items.filter((item)=>item.id!==id))
+} 
+items => العناصر الي عايز امسح منهم  
+في ال filter الي هيحقق الشرط هيبقي معايا الي مش هيحقق مش هيبقي معايا تاني الي هيحقق الشرط هيكون معايا الي مش هيحقق مش هيكون معايا 
+function handelDelete(id){
+    setItems((items)=>items.filter((item)=>item.id!==id))
+} 
+function handelDelete(id){
+    setItems((items)=>items.filter((item)=>item.id!==id)) // الي هيحقق الشرط هيكون معايا الي مش هيحقق مش هيكون معايا 
+
+} 
+
+function handelDelete(id){
+    setItems((items)=>items.filter((item)=>item.id!==id))
+} 
+
+in this project we have make three main functions
+to update on property in the object and this object exist in the list of objects 
+function handelToggle(id){
+  setItems((items)=>items.map((item)=>item.id===id?{...item , packed:!item.packed} , item))
+} 
+function addItem(newItem){
+  setItems((items)=>[...items , newItem]) // added item in the list without mutation
+} 
+function deleteItemInListBasedOnTheId(id){
+  setItem((items)=>items.filter((item)=>item.id!==id)) // in the filter statsified a condition will be in the array not statsified a condition will not be in the array
+} 
+
+Dervied state : state that is computed from an existing piece of state or from props
+Dervied state : state that is computed from an existing piece of state or from props 
+Dervied state : state that is computed from an existing piece of state or from props 
+Dervied state : state that is computed from existing piece of state or props 
+Dervied state : state that is computed from existing piece of state or props 
+Dervied state : state that is computed from existing piece of state or props 
+Dervied state: state that is computed from existing piece of state or props 
+Dervied state : state that is computed from existing piece of state or props 
+just reguler variable no , useState 
+re-rendering component will automatically re-calculate derived state 
+ex: 
+const itemsCount = items.length => items is a picese state 
+const itemsPacked = items.filter((item)=>item.packed).length 
+const percentage = Math.rounded((itemsPacked/itemsCount)*100) 
+ex of Dervied state is just reguler variable no useState 
+Dervied state is a state is computed from an existing picese of state or from props 
+Dervied state is a state is computed from an existing picese of state or from props  
+
+to take a copy of the array  using arrayName.slice() // in this case I'll take a copy of the array 
+to take a copy of the array using arrayName.slice() // to take a copy of the array 
+to make a select and sort items based on the value take it from  the select 
+to make a select and sort items based on the value take it from the select 
+first think select is a controlled element because the value of this element is Changed and I'need to this value or based on this value items will be renderd 
+first make a select 
+// make a Dervied state to sort this Items
+<div className='actions'> 
+<option>input</option> 
+<option>packed</option> 
+<option>selecting</option> 
+</div>
+<option></option>  
+
+
+to  clear the list set the list to empty list  
+to move a component to a new file automatically select a component and click to refactor then click to a new file so will component automatically move to a new file 
+{name} this is callled named export  
+
+import {name} from 'somting' named export  
+import name from 'somthing' default export  
+
+to sort items based on the input =>  sortItems = items ; 
+to sort items based on the destreaction => sortItems = items.slice().sort((a,b)=>a.destreaction.localeCompare(b.destreaction)) localeCompare 
+to sort items based on the packed(packed value is boolean true or false) = > sortItems = items.slice().sort((a,b)=>Number(a.packed)-Number(b.packed) 
+)
